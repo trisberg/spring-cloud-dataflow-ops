@@ -1,5 +1,3 @@
-# spring-cloud-skipper-ops
-
 The directory `services` contains basic kubernetes resource files for MySQL, Apache Kafka, MySQL and Prometheus for use in development.  The directory `server` contains a Kustomize based directory structure with `dev` and `prod` profiles.  The `dev` profile is configured for use with the resources created in the `services` directory.
 
 `kapp` is a simple deployment tool focused on the concept of a "Kubernetes application" — a set of resources with the same label.  We will install the development services using `kapp`
