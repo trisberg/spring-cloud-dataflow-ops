@@ -1,0 +1,9 @@
+#namePrefix: mark-
+commonLabels:
+  app.kubernetes.io/name: spring-cloud-data-flow-server
+resources:
+  - roles.yaml
+  - role-binding.yaml
+  - service-account.yaml
+  - service.yaml
+  - deployment.yaml

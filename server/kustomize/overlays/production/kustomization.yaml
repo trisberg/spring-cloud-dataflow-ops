@@ -1,0 +1,10 @@
+images:
+  - name: springcloud/spring-cloud-dataflow-server  # used for Kustomize matching
+    newName: index.docker.io/springcloud/spring-cloud-dataflow-server@sha256:8519c6e844f1a25bb6a2cb5ab289693e051f9fbdf195b443d31a694ffbbcd1c3
+resources:
+  - config.yaml
+bases:
+  - ../../base
+patches:
+- deployment-patch.yaml
+
