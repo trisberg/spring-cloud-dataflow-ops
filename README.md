@@ -1,1 +1,1 @@
-# spring-cloud-dataflow-ops
+# spring-cloud-skipper-ops
