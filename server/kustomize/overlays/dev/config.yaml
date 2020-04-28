@@ -15,7 +15,7 @@ data:
                 accounts:
                   default:
                     limits:
-                      memory: 1024Mi        
+                      memory: 1024Mi
           applicationProperties:
             stream:
               management:
@@ -38,7 +38,7 @@ data:
                         host: prometheus-proxy
                         port: 7001
           grafana-info:
-            url: 'https://grafana:3000'        
+            url: 'https://grafana:3000'
      datasource:
        url: jdbc:mysql://${MYSQL_SERVICE_HOST}:${MYSQL_SERVICE_PORT}/mysql
        username: root
