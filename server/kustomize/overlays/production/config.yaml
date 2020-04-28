@@ -19,10 +19,10 @@ data:
 #                      
 # TODO - enable replacement of database url.  
 # Secret comes from deployment-patch                        
-      datasource:
-        url: jdbc:mysql://${MYSQL_SERVICE_HOST}:${MYSQL_SERVICE_PORT}/mysql
-        username: ${database-username}
-        password: ${database-password}
-        testOnBorrow: true
-        validationQuery: "SELECT 1"
+#      datasource:
+#        url: jdbc:mysql://${MYSQL_SERVICE_HOST}:${MYSQL_SERVICE_PORT}/mysql
+#        username: ${database-username}
+#        password: ${database-password}
+#        testOnBorrow: true
+#        validationQuery: "SELECT 1"
 
