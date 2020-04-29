@@ -1,4 +1,4 @@
-#namePrefix: mark-
+# TODO how to avoid the duplication of roles/role-binding/service-account.yaml between scdf/skipper
 commonLabels:
   app.kubernetes.io/name: spring-cloud-data-flow-server
 resources:

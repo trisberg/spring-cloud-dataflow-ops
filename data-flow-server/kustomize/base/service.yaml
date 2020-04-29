@@ -6,8 +6,6 @@ metadata:
     app: scdf-server
     spring-deployment-id: scdf
 spec:
-# TODO make part of a kustomization
-  type: NodePort
   ports:
     - port: 80
       name: scdf-server

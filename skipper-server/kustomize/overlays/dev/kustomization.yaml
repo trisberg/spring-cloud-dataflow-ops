@@ -1,0 +1,12 @@
+images:
+  - name: springcloud/spring-cloud-skipper-server  # used for Kustomize matching
+    newName: springcloud/spring-cloud-skipper-server
+    newTag: 2.4.0.BUILD-SNAPSHOT
+resources:
+  - config-rabbit.yaml
+#  - config-kafka.yaml  
+bases:
+  - ../../base
+patches:
+- deployment-patch.yaml
+- service-patch.yaml

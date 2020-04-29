@@ -8,11 +8,19 @@ kapp -y deploy -a mysql -f ./services/mysql
 
 To uninstall use `kapp delete -a mysql`.
 
-
-To deploy the Data Flow Servier in the dev profile
+To deploy the Skipper Server in the dev profile
 
 ```
-kubectl kustomize ./server/kustomize/overlays/dev | kapp -y deploy -a data-flow-server -f -
+kubectl kustomize ./skipper-server/kustomize/overlays/dev | kapp -y deploy -a skipper-server -f -
+```
+
+To uninstall use `kapp -y delete -a skipper-server`
+
+
+To deploy the Data Flow Server in the dev profile
+
+```
+kubectl kustomize ./data-flow-server/kustomize/overlays/dev | kapp -y deploy -a data-flow-server -f -
 ```
 
 To uninstall use `kapp -y delete -a data-flow-server`
