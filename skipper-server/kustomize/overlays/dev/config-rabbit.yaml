@@ -15,7 +15,7 @@ data:
             platform:
               kubernetes:
                 accounts:
-                  default:                
+                  default:
                     environmentVariables: 'SPRING_RABBITMQ_HOST=${RABBITMQ_SERVICE_HOST},SPRING_RABBITMQ_PORT=${RABBITMQ_SERVICE_PORT}'
                     limits:
                       memory: 1024Mi
