@@ -23,6 +23,9 @@ spec:
           - name: config
             mountPath: /config
             readOnly: true
+          - name: database
+            mountPath: /etc/secrets/database
+            readOnly: true
         ports:
         - containerPort: 80
         livenessProbe:
@@ -55,11 +58,12 @@ spec:
           value: 'true'
         - name: SPRING_CLOUD_DATAFLOW_FEATURES_SCHEDULES_ENABLED
           value: 'true'
+        - name: SPRING_CLOUD_KUBERNETES_CONFIG_ENABLE_API
+          value: 'false'
         - name: SPRING_CLOUD_KUBERNETES_SECRETS_ENABLE_API
-          value: 'true'
-          # TODO read all secrets in the mounted directory
-        - name: SPRING_CLOUD_KUBERNETES_SECRETS_NAME
-          value: mysql
+          value: 'false'
+        - name: SPRING_CLOUD_KUBERNETES_SECRETS_PATHS
+          value: /etc/secrets
         - name: SPRING_CLOUD_DATAFLOW_SERVER_URI
           value: 'http://${SCDF_SERVER_SERVICE_HOST}:${SCDF_SERVER_SERVICE_PORT}'
           # Provide the Skipper service location
@@ -73,3 +77,6 @@ spec:
         - name: config
           configMap:
             name: scdf-server
+        - name: database
+          secret:
+            secretName: mysql
