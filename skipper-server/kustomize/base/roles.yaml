@@ -4,10 +4,10 @@ metadata:
   name: skipper-role
 rules:
   - apiGroups: [""]
-    resources: ["services", "pods", "replicationcontrollers", "persistentvolumeclaims"]
+    resources: ["services", "persistentvolumeclaims"]
     verbs: ["get", "list", "watch", "create", "delete", "update"]
   - apiGroups: [""]
-    resources: ["configmaps", "secrets", "pods/log"]
+    resources: ["configmaps", "secrets", "pods"]
     verbs: ["get", "list", "watch"]
   - apiGroups: ["apps"]
     resources: ["statefulsets", "deployments", "replicasets"]
@@ -15,6 +15,3 @@ rules:
   - apiGroups: ["extensions"]
     resources: ["deployments", "replicasets"]
     verbs: ["get", "list", "watch", "create", "delete", "update", "patch"]
-  - apiGroups: ["batch"]
-    resources: ["cronjobs", "jobs"]
-    verbs: ["create", "delete", "get", "list", "watch", "update", "patch"]
