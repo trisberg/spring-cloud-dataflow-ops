@@ -2,8 +2,10 @@ images:
   - name: springcloud/spring-cloud-dataflow-server  # used for Kustomize matching
     newName: springcloud/spring-cloud-dataflow-server
     newTag: 2.5.0.BUILD-SNAPSHOT
-resources:
-  - config.yaml
+configMapGenerator:
+- name: scdf-server
+  files:
+    - application.yaml
 bases:
   - ../../base
 patches:

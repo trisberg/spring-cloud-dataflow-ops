@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    dataflow:
+      task:
+        platform:
+          kubernetes:
+            accounts:
+              default:
+                limits:
+                  memory: 1024Mi
+  datasource:
+    url: jdbc:mysql://${MYSQL_SERVICE_HOST}:${MYSQL_SERVICE_PORT}/mysql
+    username: root
+    password: ${mysql-root-password}
+    driverClassName: org.mariadb.jdbc.Driver
+    testOnBorrow: true
+    validationQuery: "SELECT 1"

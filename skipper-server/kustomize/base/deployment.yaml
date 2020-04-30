@@ -19,6 +19,10 @@ spec:
       - name: skipper
         image: springcloud/spring-cloud-skipper-server:2.4.0.BUILD-SNAPSHOT
         imagePullPolicy: Always
+        volumeMounts:
+          - name: config
+            mountPath: /config
+            readOnly: true        
         ports:
         - containerPort: 80
         livenessProbe:
@@ -31,33 +35,22 @@ spec:
             path: /actuator/info
             port: 7577
           initialDelaySeconds: 45
-        resources:
+        resources:  # TODO move down into profiles
           limits:
             cpu: 1.0
-            memory: 1024Mi
+            memory: 1024Mi  
           requests:
             cpu: 0.5
             memory: 640Mi
         env:
         - name: SPRING_CLOUD_CONFIG_ENABLED
           value: 'false'        
-        - name: SPRING_CLOUD_KUBERNETES_CONFIG_NAME
-          value: skipper
         - name: SPRING_CLOUD_KUBERNETES_SECRETS_ENABLE_API
           value: 'true'
         - name: SPRING_CLOUD_KUBERNETES_SECRETS_NAME
           value: mysql
-      initContainers:
-      - name: init-mysql-wait
-        image: busybox
-        command: ['sh', '-c', 'until nc -w3 -z mysql 3306; do echo waiting for mysql; sleep 3; done;']
-      - name: init-mysql-database
-        image: mysql:5.6
-        env:
-        - name: MYSQL_PWD
-          valueFrom:
-            secretKeyRef:
-              name: mysql
-              key: mysql-root-password
-        command: ['sh', '-c', 'mysql -h mysql -u root -e "CREATE DATABASE IF NOT EXISTS skipper;"']
       serviceAccountName: scdf-sa
+      volumes:
+        - name: config
+          configMap:
+            name: skipper     
