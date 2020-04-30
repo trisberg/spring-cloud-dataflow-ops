@@ -39,10 +39,11 @@ data:
                         port: 7001
           grafana-info:
             url: 'https://grafana:3000'
-     datasource:
-       url: jdbc:mysql://${MYSQL_SERVICE_HOST}:${MYSQL_SERVICE_PORT}/mysql
-       username: root
-       password: ${mysql-root-password}
-       testOnBorrow: true
-       validationQuery: "SELECT 1"
+      datasource:
+        url: jdbc:mysql://${MYSQL_SERVICE_HOST}:${MYSQL_SERVICE_PORT}/mysql
+        username: root
+        password: ${mysql-root-password}
+        driverClassName: org.mariadb.jdbc.Driver
+        testOnBorrow: true
+        validationQuery: "SELECT 1"
 
