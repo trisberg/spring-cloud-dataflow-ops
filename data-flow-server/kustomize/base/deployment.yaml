@@ -57,12 +57,12 @@ spec:
           value: 'true'
         - name: SPRING_CLOUD_KUBERNETES_SECRETS_ENABLE_API
           value: 'true'
-          # TODO read all secrets in the mounted directory          
+          # TODO read all secrets in the mounted directory
         - name: SPRING_CLOUD_KUBERNETES_SECRETS_NAME
           value: mysql
         - name: SPRING_CLOUD_DATAFLOW_SERVER_URI
           value: 'http://${SCDF_SERVER_SERVICE_HOST}:${SCDF_SERVER_SERVICE_PORT}'
-          # Provide the Skipper service location 
+          # Provide the Skipper service location
         - name: SPRING_CLOUD_SKIPPER_CLIENT_SERVER_URI
           value: 'http://${SKIPPER_SERVICE_HOST}:${SKIPPER_SERVICE_PORT}/api'
           # Add Maven repo for metadata artifact resolution for all stream apps

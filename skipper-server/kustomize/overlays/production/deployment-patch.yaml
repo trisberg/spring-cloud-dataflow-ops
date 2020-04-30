@@ -11,7 +11,7 @@ spec:
           volumeMounts:
             - name: database
               mountPath: /etc/secrets/database
-              readOnly: true  
+              readOnly: true
       volumes:
         - name: database
           secret:

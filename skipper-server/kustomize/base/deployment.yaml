@@ -22,7 +22,7 @@ spec:
         volumeMounts:
           - name: config
             mountPath: /config
-            readOnly: true        
+            readOnly: true
         ports:
         - containerPort: 80
         livenessProbe:
@@ -38,13 +38,13 @@ spec:
         resources:  # TODO move down into profiles
           limits:
             cpu: 1.0
-            memory: 1024Mi  
+            memory: 1024Mi
           requests:
             cpu: 0.5
             memory: 640Mi
         env:
         - name: SPRING_CLOUD_CONFIG_ENABLED
-          value: 'false'        
+          value: 'false'
         - name: SPRING_CLOUD_KUBERNETES_SECRETS_ENABLE_API
           value: 'true'
         - name: SPRING_CLOUD_KUBERNETES_SECRETS_NAME
@@ -53,4 +53,4 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: skipper     
+            name: skipper

@@ -5,7 +5,7 @@ images:
 configMapGenerator:
 - name: skipper
   files:
-    - application.yaml 
+    - application.yaml
 bases:
   - ../../base
 patches:
